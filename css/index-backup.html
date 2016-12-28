@@ -1,0 +1,54 @@
+!!!5
+%html{class:"no-js", lang:"es"}
+	%head
+		%title Gentlers, tu estilo.
+		%meta{charset:"utf-8"}
+		%meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
+		%meta{name:"description", content:"Gentlers es la herramienta que te conoce y te ofrece solo las  prendas correctas según tu estilo."}
+		%meta{name:"keywords", content:"estilo, ropa, asesoria de imagen, gentlers"}
+		%meta{name:"owner", content:"Gentlers SAC"}
+		%meta{name:"author", content:"Evert Diaz Buitron"}
+		%meta{property:"og:title", content:"Gentlers, tu estilo."}
+		%meta{property:"og:description", content:"Gentlers es la herramienta que te conoce y te ofrece solo las  prendas correctas según tu estilo."}
+		%meta{property:"og:url", content:"http://gentlers.pe"}
+		%meta{property:"og:image", content:""}
+		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
+		%link{rel:"stylesheet", href:"css/normalize.css"}
+		%link{rel:"stylesheet", href:"css/bootstrap.css"}
+		%link{rel:"stylesheet", href:"css/flexboxgrid.css"}
+		%link{rel:"stylesheet", href:"css/main.css"}
+		%link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Poiret+One"}
+		%link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"}
+
+		
+	%body
+		="<!--[if lt IE 9]>"
+		%p{class:"browserupgrade"}
+			Estáss usando un navegador
+			%strong desactualizado.
+			Por favor
+			%a{href:"http://browsehappy.com"}
+				actualiza tu navegador
+			para una mejor experiencia
+		="<![endif]-->"
+		.video-container
+			%video{autoplay:false, loop:true,width:"1280",height:"720", poster:"/videos/Snapshots/Inbox-Zero.jpg"}
+				%source{src:"/videos/MP4/Inbox-Zero.mp4", typ:"video/mp4"}
+				%source{src:"/videos/WEBM/Inbox-Zero.webm", typ:"video/webm"}
+		.row.full-height.middle-xs.center-xs.relative.up
+			.col-xs-12
+				.box
+					%img{src:"img/logo.png",width:250}
+					%h1.white-text.Lora.title.no-margin Tu estilo en una plataforma.
+					%p#is-open 
+						%i.glyphicon.glyphicon-time
+						Abierto Ahora
+			%nav.fixed.up.top.right.navigation.white-text#navigation
+				-menu = ["Inicio", "Tienda", "Galería", "Contacto", "Cómo Comprar"]
+				%ul.list-inline
+					-menu.each do |item|
+						%li
+							%a{}= item
+			.absolute.medium.black.large-padding.bottom.white-text.full-width.left#description 
+				Compra lo que te gusta, te queda y necesitas.
+		.full-height

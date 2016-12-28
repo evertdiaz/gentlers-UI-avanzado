@@ -1,0 +1,10 @@
+Enlaces:
+haml -> Preprocesador de HTML
+jade -> Prepro de HTML
+Jinja -> Prepro de HTML
+Slim -> Prepro de HTML
+prepros.io -> Automatizador de tareas simple.
+fromspree.io -> Envio facil de mensajes.
+coverr.co -> Videos listos para embedder
+flexboxgrid -> Libreria lista para flexbox.
+bootstrap customize -> Customizacion de las clases de tu libreria de bootstrap.

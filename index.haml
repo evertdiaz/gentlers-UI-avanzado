@@ -1,0 +1,122 @@
+-gallery_images = ["club-sandwich", "papas", "hamburger", "panini", "club-sandwich", "papas"]
+!!!5
+%html{class:"no-js", lang:"es"}
+	%head
+		%title Gentlers, tu estilo.
+		%meta{charset:"utf-8"}
+		%meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
+		%meta{name:"description", content:"Gentlers es la herramienta que te conoce y te ofrece solo las  prendas correctas según tu estilo."}
+		%meta{name:"keywords", content:"estilo, ropa, asesoria de imagen, gentlers"}
+		%meta{name:"owner", content:"Gentlers SAC"}
+		%meta{name:"author", content:"Evert Diaz Buitron"}
+		%meta{property:"og:title", content:"Gentlers, tu estilo."}
+		%meta{property:"og:description", content:"Gentlers es la herramienta que te conoce y te ofrece solo las  prendas correctas según tu estilo."}
+		%meta{property:"og:url", content:"http://gentlers.pe"}
+		%meta{property:"og:image", content:""}
+		%meta{:"data-name" => "image-counter", content:"#{gallery_images.size - 1}"}
+
+		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
+		%link{rel:"stylesheet", href:"css/normalize.css"}
+		%link{rel:"stylesheet", href:"css/bootstrap.css"}
+		%link{rel:"stylesheet", href:"css/flexboxgrid.css"}
+		%link{rel:"stylesheet", href:"css/main.css"}
+		%link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Poiret+One"}
+		%link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"}
+
+		
+	%body
+		="<!--[if lt IE 9]>"
+		%p{class:"browserupgrade"}
+			Estáss usando un navegador
+			%strong desactualizado.
+			Por favor
+			%a{href:"http://browsehappy.com"}
+				actualiza tu navegador
+			para una mejor experiencia
+		="<![endif]-->"
+		.video-container
+			%video{autoplay:false, loop:true,width:"1280",height:"720", poster:"/videos/Snapshots/Inbox-Zero.jpg"}
+				%source{src:"/videos/MP4/Inbox-Zero.mp4", typ:"video/mp4"}
+				%source{src:"/videos/WEBM/Inbox-Zero.webm", typ:"video/webm"}
+		.row.full-height.middle-xs.center-xs.relative.up#home
+			.col-xs-12
+				.box
+					%img{src:"img/logo.png",width:250}
+					%h1.white-text.Lora.title.no-margin Tu estilo en una plataforma.
+					%p#is-open 
+						%i.glyphicon.glyphicon-time
+						Abierto Ahora
+			%nav.fixed.up.top.right.navigation.white-text#navigation
+				-menu = ["Inicio", "Tienda", "Galería", "Contacto", "Cómo Comprar"]
+				%ul.list-inline
+					-menu.each do |item|
+						%li
+							%a{}= item
+			.absolute.black.large-padding.white-text.full-width.left#description 
+				.row.middle-xs.center-xs
+					.col-xs-7.col-sm-6.white-txt.medium
+						Compra lo que te gusta, te queda y necesitas.
+					.col-xs#sticky-navigation
+						.box
+							.nav.text-right.navigation
+								%ul.list-inline
+									-menu.each do |item|
+										%li
+											%a{}= item
+
+		.text-center.relative#menu
+			.absolute.white#menu-title
+				%h2.Lora.title Menú
+			-menu_photos = [{name: "Club Sandwich", image: "club-sandwich", pricing: "10.00"},{name: "Combo Hamburguesa", image: "combo", pricing: "50.00"},{name: "Hamburguesa", image: "hamburger", pricing: "20.00"},{name: "Hot Cakes", image: "hot-cakes", pricing: "30.00"},{name: "Panini", image: "panini", pricing: "10.00"},{name: "Papas", image: "papas", pricing: "10.00"},{name: "Club Sandwich", image: "club-sandwich", pricing: "10.00"},{name: "Hamburguesa", image: "hamburger", pricing: "20.00"}]
+			.row
+				-menu_photos.each do |photo|
+					.col-md-4.col-lg-3.col-sm-6.col-xs-12.food{style:"background-image:url(/img/food/#{photo[:image]}-thumb.jpg)"}
+						.screen
+							.row.middle-xs.full-height
+								.col-xs-12
+									%h3.Lora.white-text.no-margin.middle-xs.subtitle= photo[:name]
+									%p.no-margin.white-text= "S/." + photo[:pricing] 
+						
+		#gallery
+			.inner
+				-gallery_images.each do |image|
+					.image{style:"background-image:url(/img/food/#{image}.jpg)"}
+		.container
+			.card.white.black-text.text-center.relative
+				%h3.medium.slim
+					En
+					%strong.Lora.medium Gentlers
+					Vestir bien es nuestra prioridad, también tu
+					%strong.Lora.medium Estilo
+				%p.top-space Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				%strong.Lora.medium Evert Díaz
+		.black.white-text.full-height#contact
+			.row.middle-xs.full-height
+				.col-xs-12
+					.box
+						%form{action:"https://formspree.io/desarrollo@devs.com.pe", method:"POST"}
+							.row.center-xs
+								.col-xs-12.col-md-1
+									.box
+								.col-xs-5
+									.box
+										%input{type:"text", name:"email", placeholder:"Coloca tu Correo"}
+										%input{type:"text", name:"name", placeholder:"Coloca tu Nombre"}
+										%textarea{type:"email", name:"message", placeholder:"Cuéntanos tu consulta..."}
+										%input{type:"hidden", name:"_next", value:"gracias.html"}
+										%input{type:"hidden", name:"_subject", value:"Contacto en DEVS"}
+										%input{type:"hidden", name:"_format", value:"plain"}
+										%div
+											%button{type:"submit"} Enviar
+
+
+
+		%script{src:"http://code.jquery.com/jquery-3.1.0.min.js",integrity:"sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=",crossorigin:"anonymous"}
+		%script
+			window.jQuery || document.write("<script src='js/jquery-3.1.0.js'><\/script>")
+		%script{src:"js/main.js"}
